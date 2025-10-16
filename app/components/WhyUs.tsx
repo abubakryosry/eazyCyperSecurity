@@ -10,14 +10,20 @@ type WhyProps = {
   locale: string;
 };
 
+// تحديد نوع العنصر اللي هيتعرض من API
+interface WhyItem {
+  id: number;
+  point: string;
+}
+
 export default function WhyUs({ locale }: WhyProps) {
   const isAr = locale === "ar";
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<WhyItem[]>([]);
 
   useEffect(() => {
     // Fetch data on client-side
     const fetchData = async () => {
-      const res = await getWhy(locale);
+      const res: WhyItem[] = await getWhy(locale);
       setData(res);
     };
     fetchData();
@@ -76,7 +82,7 @@ export default function WhyUs({ locale }: WhyProps) {
               {isAr ? "لماذا نحن؟" : "Why Us?"}
             </h2>
             <ul className="list-none space-y-3 text-gray-300">
-              {data.map((item: any) => (
+              {data.map((item) => (
                 <li
                   key={item.id}
                   className="text-lg hover:text-blue-500 transition-colors"

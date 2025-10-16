@@ -1,17 +1,28 @@
 "use client";
 
-import { useFormik } from "formik";
+import { useFormik, FormikProps } from "formik";
 import * as Yup from "yup";
 
 type ContactFormProps = {
   locale: string;
 };
 
+interface ContactFormValues {
+  firstName: string;
+  lastName: string;
+  company: string;
+  position: string;
+  phone: string;
+  email: string;
+  service: string;
+  details: string;
+}
+
 export default function ContactForm({ locale }: ContactFormProps) {
   const isAr = locale === "ar";
   const t = (ar: string, en: string) => (isAr ? ar : en);
 
-  const formik = useFormik({
+  const formik: FormikProps<ContactFormValues> = useFormik<ContactFormValues>({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -151,9 +162,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
                 </option>
               </select>
               {formik.touched.service && formik.errors.service && (
-                <p className="text-red-500 text-sm mt-1">
-                  {formik.errors.service}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{formik.errors.service}</p>
               )}
             </div>
 
@@ -173,9 +182,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
                 )}
               />
               {formik.touched.details && formik.errors.details && (
-                <p className="text-red-500 text-sm mt-1">
-                  {formik.errors.details}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{formik.errors.details}</p>
               )}
             </div>
 
@@ -200,8 +207,8 @@ function Input({
   placeholder,
 }: {
   label: string;
-  name: string;
-  formik: any;
+  name: keyof ContactFormValues; // بدل any
+  formik: FormikProps<ContactFormValues>; // بدل any
   type?: string;
   placeholder?: string;
 }) {
