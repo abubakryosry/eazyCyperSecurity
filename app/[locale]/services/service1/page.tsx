@@ -2,7 +2,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import HeroS1 from "../../../components/service1Components/HeroS1";
-import ContactForm from "../../../components/ContactForm";
+import WhyS1 from "../../../components/service1Components/WhyS1";
+import ContactForm from "../../../components/contactComponents/ContactForm";
+import S1Services from "../../../components/service1Components/S1Services";
+import HowWeWork from "../../../components/service1Components/HowWeWork";
 
 type PageProps = {
   params: { locale: string };
@@ -32,6 +35,9 @@ export default async function Service1Page({ params }: PageProps) {
   return (
     <>
       <HeroS1 locale={locale} />
+      <WhyS1 locale={locale} />
+      <S1Services locale={locale} />
+      <HowWeWork locale={locale} />
       <ContactForm locale={locale} />
       </>
   );

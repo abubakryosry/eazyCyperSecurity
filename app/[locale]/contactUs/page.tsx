@@ -2,8 +2,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import HeroContact from "../../components/HeroContact";
-import ContactForm from "../../components/ContactForm";
+import HeroContact from "../../components/contactComponents/HeroContact";
+import ContactForm from "../../components/contactComponents/ContactForm";
+import ContactCards from "../../components/contactComponents/ContactCards";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -27,6 +28,7 @@ export default async function Home({ params }: PageProps) {
   return (
     <>
       <HeroContact locale={locale} />
+      <ContactCards locale={locale} />
       <ContactForm locale={locale} />
       
     </>

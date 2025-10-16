@@ -65,30 +65,30 @@ export default function ContactForm({ locale }: ContactFormProps) {
   return (
     <div
       dir={isAr ? "rtl" : "ltr"}
-      className="bg-[#0a0a2a] text-white py-16 px-6"
+      className="bg-[#0a0a2a] text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6"
     >
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
-        {/* Right: Text */}
-        <div className="text-center md:text-right max-w-sm">
-          <h2 className="text-2xl font-bold mb-3">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10 max-w-6xl mx-auto">
+        {/* Text Section */}
+        <div className="text-center md:text-start max-w-md">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
             {t("احجز موعد الآن معنا", "Book an Appointment Now")}
           </h2>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
             {t(
-              "اكتشف كيف يمكننا مساعدتك في تعزيز أمنك السيبراني وضمان استمرار أعمالك بثقة وأمان",
+              "اكتشف كيف يمكننا مساعدتك في تعزيز أمنك السيبراني وضمان استمرار أعمالك بثقة وأمان.",
               "Discover how we can help strengthen your cybersecurity and ensure your business continuity with confidence and security."
             )}
           </p>
         </div>
 
-        {/* Left: Form */}
-        <div className="bg-white text-gray-800 rounded-2xl shadow-lg p-8 w-full max-w-lg">
+        {/* Form Section */}
+        <div className="bg-white text-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-lg">
           <h2 className="text-lg font-bold mb-4">
             {t("املأ البيانات الآتية", "Fill in your details")}
           </h2>
 
           <form onSubmit={formik.handleSubmit} className="space-y-3">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label={t("الاسم الأول", "First Name")}
                 name="firstName"
@@ -103,7 +103,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label={t("اسم الشركة", "Company Name")}
                 name="company"
@@ -118,7 +118,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
                 label={t("رقم الجوال / الواتساب", "Phone / WhatsApp")}
                 name="phone"
@@ -130,7 +130,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
                 name="email"
                 type="email"
                 formik={formik}
-                placeholder={t("example@email.com", "example@email.com")}
+                placeholder="example@email.com"
               />
             </div>
 
@@ -158,7 +158,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
                   {t("الأمن السيبراني", "Cybersecurity")}
                 </option>
                 <option value="cloudcomputing">
-                  {t("الحوسبة السحابية والاستضافة ", "Cloud Computing & Hosting")}
+                  {t("الحوسبة السحابية والاستضافة", "Cloud Computing & Hosting")}
                 </option>
               </select>
               {formik.touched.service && formik.errors.service && (
@@ -188,7 +188,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
 
             <button
               type="submit"
-              className="w-full bg-blue-900 text-white rounded-md py-3 mt-2 hover:bg-blue-800 transition font-semibold"
+              className="w-full bg-blue-900 text-white rounded-md py-3 mt-2 hover:bg-blue-800 transition font-semibold shadow-md hover:shadow-lg"
             >
               {t("الحصول على استشارة مجانية", "Get a Free Consultation")}
             </button>
@@ -207,8 +207,8 @@ function Input({
   placeholder,
 }: {
   label: string;
-  name: keyof ContactFormValues; // بدل any
-  formik: FormikProps<ContactFormValues>; // بدل any
+  name: keyof ContactFormValues;
+  formik: FormikProps<ContactFormValues>;
   type?: string;
   placeholder?: string;
 }) {

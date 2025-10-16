@@ -123,7 +123,7 @@ export default function ServicesCards({ locale }: ServicesProps) {
             />
           </div>
           {/* Text */}
-          <div className="md:w-1/2 flex flex-col items-start gap-3 text-center md:text-start">
+          <div className="md:w-1/2 flex flex-col items-center lg:items-start gap-3 text-center lg:text-start">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
               {isAr ? service.titleAr : service.titleEn}
             </h2>
