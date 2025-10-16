@@ -52,36 +52,42 @@ export default function Footer() {
       dir={isAr ? "rtl" : "ltr"}
       className="bg-white border-t border-gray-200 text-gray-700"
     >
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About */}
-        <div>
+        <div className="text-center md:text-right">
           <Image
             src="/logo-footer.png"
-            width={100}
+            width={120}
             height={60}
             priority
             alt="Eazy Cyber Agent Logo"
-            className="h-10 mb-4"
+            className="h-10 mb-4 mx-auto md:mx-0"
           />
-          <p className="text-sm leading-6">{t.desc}</p>
-          <div className="flex gap-3 mt-4">
+          <p className="text-sm leading-6 font-medium">{t.desc}</p>
+          <div className="flex justify-center md:justify-start gap-3 mt-4">
             <a
               href="https://www.linkedin.com/company/eazycyber/"
-              className="p-2 border rounded-full hover:bg-gray-100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border rounded-full text-lg hover:bg-gray-100 transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn />
             </a>
             <a
               href="https://x.com/eazycyber"
-              className="p-2 border rounded-full hover:bg-gray-100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border rounded-full text-lg hover:bg-gray-100 transition-colors duration-200"
               aria-label="Twitter / X"
             >
               <FaTwitter />
             </a>
             <a
               href="https://www.facebook.com/eazycyber"
-              className="p-2 border rounded-full hover:bg-gray-100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border rounded-full text-lg hover:bg-gray-100 transition-colors duration-200"
               aria-label="Facebook"
             >
               <FaFacebookF />
@@ -89,58 +95,76 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* About Links */}
-        <div>
+        {/* Quick Links */}
+        <div className="text-center md:text-right">
           <h3 className="font-semibold mb-3">{t.about}</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#">{t.home}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.home}
+              </a>
             </li>
             <li>
-              <a href="#">{t.services}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.services}
+              </a>
             </li>
             <li>
-              <a href="#">{t.contact}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.contact}
+              </a>
             </li>
             <li>
-              <a href="#">{t.quote}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.quote}
+              </a>
             </li>
           </ul>
         </div>
 
         {/* Services */}
-        <div>
+        <div className="text-center md:text-right">
           <h3 className="font-semibold mb-3">{t.serviceTitle}</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#">{t.cybersecurity}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.cybersecurity}
+              </a>
             </li>
             <li>
-              <a href="#">{t.consulting}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.consulting}
+              </a>
             </li>
             <li>
-              <a href="#">{t.apps}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.apps}
+              </a>
             </li>
             <li>
-              <a href="#">{t.web}</a>
+              <a href="#" className="hover:text-blue-800 hover:underline transition-colors duration-200">
+                {t.web}
+              </a>
             </li>
           </ul>
         </div>
 
         {/* Contact */}
-        <div>
+        <div className="text-center md:text-right">
           <h3 className="font-semibold mb-3">{t.contactUs}</h3>
           <ul className="space-y-2 text-sm">
             <li>
               {t.phone}:{" "}
               <span className="block">
-                <a href="tel:+9661234564">+9661234564</a>
+                <a href="tel:+9661234564" className="hover:text-blue-800 underline">
+                  +9661234564
+                </a>
               </span>
             </li>
             <li>
               {t.email}:{" "}
               <span className="block">
-                <a href="mailto:example@eazycyber.sa">
+                <a href="mailto:example@eazycyber.sa" className="hover:text-blue-800 underline">
                   example@eazycyber.sa
                 </a>
               </span>
@@ -149,7 +173,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-center text-sm border-t border-gray-200 py-4">
+      <div className="text-center text-sm border-t border-gray-200 py-4 px-4 sm:px-6">
         {t.rights}
       </div>
     </footer>

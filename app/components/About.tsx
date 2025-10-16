@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  MdOutlineCenterFocusStrong, // Vision
-} from "react-icons/md";
-import { GiArcheryTarget, GiGoldStack } from "react-icons/gi"; // Mission, Values
-import { RiPoliceBadgeLine } from "react-icons/ri"; // Achievements
+import { MdOutlineCenterFocusStrong } from "react-icons/md";
+import { GiArcheryTarget, GiGoldStack } from "react-icons/gi";
+import { RiPoliceBadgeLine } from "react-icons/ri";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -80,57 +78,45 @@ export default function AboutSection({ locale }: AboutSectionProps) {
   const [active, setActive] = useState("mission");
   const activeTab = tabs.find((t) => t.key === active);
 
-  // Initialize AOS
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true, // animate only once
-    });
+    AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section
-      dir={isAr ? "rtl" : "ltr"}
-      className="flex flex-row-reverse border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm max-w-5xl mx-auto my-16"
-    >
-      {/* Text Content */}
-      <div
-        className="flex-1 p-8 flex items-center justify-center text-center transition-all duration-300"
-        data-aos="fade-up"
-      >
-        <p className="text-blue-900 text-lg leading-relaxed max-w-2xl">
-          {activeTab?.content}
-        </p>
-      </div>
-
-      {/* Sidebar Tabs */}
-      <div
-        className="flex flex-col w-48 bg-gray-50 p-4"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActive(tab.key)}
-            className={`flex items-center justify-center rounded-md py-4 mb-4 bg-[#EFEFEF] transition-all duration-200 ${
-              active === tab.key
-                ? " text-white font-semibold !bg-blue-700"
-                : "text-gray-700 hover:bg-blue-50"
-            }`}
-          >
-            <span
-              className={`mx-2 ${
-                active === tab.key ? "text-white" : "text-gray-700"
+    <section dir={isAr ? "rtl" : "ltr"} className="my-16 px-4 sm:px-6">
+      <div className="max-w-4xl md:max-w-5xl mx-auto flex flex-col md:flex-row border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        {/* Tabs */}
+        <div
+          className="bg-gray-50 p-4 md:w-48 md:flex md:flex-col md:gap-4 grid grid-cols-2 gap-2 justify-items-center md:justify-items-start"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          {tabs.map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActive(tab.key)}
+              className={`flex items-center justify-center md:justify-start w-full rounded-md py-3 transition-all duration-200 ${
+                active === tab.key
+                  ? "bg-blue-700 text-white font-semibold"
+                  : "bg-[#EFEFEF] text-gray-700 font-semibold hover:bg-blue-50"
               }`}
             >
-              {tab.icon}
-            </span>
-            <span>{tab.label}</span>
-          </button>
-        ))}
+              <span className="mx-2">{tab.icon}</span>
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Content */}
+        <div
+          className="flex-1 px-4 sm:px-6 py-6 md:p-8 flex items-center justify-center text-center"
+          data-aos="fade-up"
+        >
+          <p className="text-blue-900 text-lg sm:text-xl md:text-xl font-semibold leading-relaxed max-w-2xl">
+            {activeTab?.content}
+          </p>
+        </div>
       </div>
     </section>
   );
 }
-``

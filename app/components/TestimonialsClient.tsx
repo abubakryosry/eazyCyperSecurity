@@ -10,14 +10,10 @@ type Testimonial = {
   name: string;
   position: string;
   review: string;
-  imageClient?: {
-    url: string;
-  };
+  imageClient?: { url: string };
 };
 
-type TestimonialsClientProps = {
-  data: Testimonial[];
-};
+type TestimonialsClientProps = { data: Testimonial[] };
 
 export default function TestimonialsClient({ data }: TestimonialsClientProps) {
   return (
@@ -26,34 +22,34 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
         <h2 className="text-3xl font-bold text-gray-800 mb-3">اراء عملائنا</h2>
         <p className="text-gray-500 mb-10">
           ثقة شركائنا هي أساس نجاحنا في{" "}
-          <span className="text-primary font-semibold">Eazy Cyber Agent</span>،
-          وهذه بعض تجاربهم معنا:
+          <span className="text-primary font-semibold">Eazy Cyber Agent</span>، وهذه بعض تجاربهم معنا:
         </p>
 
         <div className="relative">
           <Swiper
             modules={[Pagination, Autoplay]}
             loop={true}
-            centeredSlides={true}
-            spaceBetween={60}
-            slidesPerView={3}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            centeredSlides={false}
+            spaceBetween={20}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{
               clickable: true,
-              el: ".custom-pagination", // render bullets here
+              el: ".custom-pagination",
               renderBullet: (index, className) =>
                 `<span class="${className} custom-bullet"></span>`,
             }}
-            className="pb-16" // add extra bottom padding
+            breakpoints={{
+              0: { slidesPerView: 1 },     // mobile
+              768: { slidesPerView: 2 },   // tablet
+              1024: { slidesPerView: 3 },  // laptop/desktop
+            }}
+            className="pb-16"
           >
             {data.map((testimonial) => (
-              <SwiperSlide
-                key={testimonial.id}
-                className="flex justify-center flex-shrink-0"
-              >
-                <div className="bg-white shadow-sm border border-gray-100 rounded-3xl p-8 flex flex-col justify-between group duration-75 hover:shadow-xl relative w-[420px]">
-                  {/* Quotation mark */}
-                  <div className="absolute top-0 left-0  -translate-y-16 text-[180px] text-primary opacity-10 select-none overflow-hidden pointer-events-none z-0">
+              <SwiperSlide key={testimonial.id} className="w-full flex justify-center">
+                <div className="bg-white shadow-sm border border-gray-100 rounded-3xl p-8 flex flex-col justify-between group duration-75 hover:shadow-xl w-full">
+                  {/* Quote background */}
+                  <div className="absolute top-0 left-0 -translate-y-16 text-[180px] text-primary opacity-10 select-none pointer-events-none z-0">
                     ❝
                   </div>
 
@@ -62,13 +58,15 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
                     {testimonial.review}
                   </p>
 
-                  {/* Image + Name/Position in Row */}
+                  {/* Client info */}
                   <div className="flex items-center gap-4 mt-4">
-                    <img
-                      src={`https://eazycyperstrapi.onrender.com${testimonial?.imageClient?.url}`}
-                      alt={testimonial.name}
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+                    {testimonial.imageClient?.url && (
+                      <img
+                        src={`https://eazycyperstrapi.onrender.com${testimonial.imageClient.url}`}
+                        alt={testimonial.name}
+                        className="w-16 h-16 rounded-full object-cover"
+                      />
+                    )}
                     <div className="flex flex-col text-right">
                       <h3 className="font-semibold text-gray-800 text-base">
                         {testimonial.name}
@@ -83,7 +81,6 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
             ))}
           </Swiper>
 
-          {/* Pagination container outside slides */}
           <div className="custom-pagination mt-8 flex justify-center"></div>
         </div>
 
@@ -98,7 +95,10 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
             transition: background 0.3s;
           }
           .custom-bullet.swiper-pagination-bullet-active {
-            background-color: #1d4ed8; /* primary color */
+            background-color: #1d4ed8;
+          }
+          .swiper-wrapper {
+            align-items: flex-start; /* prevents vertical overlap */
           }
         `}</style>
       </div>
