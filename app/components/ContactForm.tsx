@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 type ContactFormProps = {
-  locale: any;
+  locale: string;
 };
 
 export default function ContactForm({ locale }: ContactFormProps) {

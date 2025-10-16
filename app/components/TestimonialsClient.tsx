@@ -5,8 +5,18 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+type Testimonial = {
+  id: string | number;
+  name: string;
+  position: string;
+  review: string;
+  imageClient?: {
+    url: string;
+  };
+};
+
 type TestimonialsClientProps = {
-  data: any[];
+  data: Testimonial[];
 };
 
 export default function TestimonialsClient({ data }: TestimonialsClientProps) {
