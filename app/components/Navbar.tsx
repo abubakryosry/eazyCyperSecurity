@@ -50,15 +50,17 @@ export default function Navbar() {
   return (
     <nav
       dir={isAr ? "rtl" : "ltr"}
-      className="w-auto lg:w-[70%] absolute top-4 left-1/2 -translate-x-1/2 z-50 rounded-3xl backdrop-blur-md bg-gray-500/5 text-white shadow-md"
+      className="w-full lg:w-[70%] absolute top-4 left-1/2 -translate-x-1/2 z-50 bg-transparent lg:bg-[#1B1B1B29]/50 lg:backdrop-blur-md lg:shadow-md rounded-3xl text-white"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-2 px-4">
-        {/* Logo - hidden on mobile & tablet */}
-        <div className="hidden lg:block">
-          <img src="/logo.png" alt="EAZY" className="h-8 object-contain" />
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+        {/* Hamburger for sm/md screens - always on left */}
+        <div className="lg:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
         </div>
 
-        {/* Navigation Links - Desktop */}
+        {/* Desktop Links */}
         <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {navItems.map((item) => (
             <li key={item.name}>
@@ -72,7 +74,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Buttons - Desktop */}
+        {/* Desktop Buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={handleToggleLanguage}
@@ -87,18 +89,11 @@ export default function Navbar() {
             </button>
           </Link>
         </div>
-
-        {/* Hamburger for mobile */}
-        <div className="lg:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-          </button>
-        </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden px-4 pb-4">
+        <div className="lg:hidden mt-2 bg-gray-500/10 rounded-xl px-4 pb-4">
           <ul className="flex flex-col gap-4 text-sm font-medium">
             {navItems.map((item) => (
               <li key={item.name}>
