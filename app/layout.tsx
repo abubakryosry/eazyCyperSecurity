@@ -1,5 +1,6 @@
 // layout.tsx
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import ClientLayout from "./components/ClientLayout"; // client wrapper
