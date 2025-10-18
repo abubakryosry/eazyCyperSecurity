@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="ar">
       <body>
         <LanguageProvider>
-          <ClientLayout>{children}</ClientLayout>
+          <ClientLayout>{children} <SpeedInsights /></ClientLayout>
         </LanguageProvider>
       </body>
     </html>
