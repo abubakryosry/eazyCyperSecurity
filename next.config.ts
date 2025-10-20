@@ -5,7 +5,12 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "1337", // مهم جدًا عشان يطابق البورت
+        port: "1337",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "eazycyperstrapi.onrender.com",
         pathname: "/uploads/**",
       },
     ],
