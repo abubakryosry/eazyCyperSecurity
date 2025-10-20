@@ -20,7 +20,7 @@ export default function Footer() {
       consulting: "الاستشارات التقنية",
       apps: "تطوير التطبيقات",
       web: "تصميم المواقع",
-      contactUs: "تواصل معنا",
+      contactUs: "تواصل  معنا",
       phone: "هاتف",
       email: "بريد إلكتروني",
       rights: "جميع الحقوق محفوظة لصالح شركة Eazy Cyber Agent - 2026",
