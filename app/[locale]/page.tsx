@@ -6,9 +6,7 @@ import type { Metadata } from "next";
 import WhyUs from "../components/WhyUs";
 import Testimonials from "../components/Testimonial";
 import ContactUs from "../components/ContactUs";
-import Footer from "../components/Footer";
-import About from "../components/About";
-import Navbar from "../components/Navbar";
+import AboutTabs from "../components/AboutTabs";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -32,7 +30,7 @@ export default async function Home({ params }: PageProps) {
   return (
     <>
       <Hero locale={locale} />
-      <About locale={locale}/>
+      <AboutTabs locale={locale}  />
       <Services locale={locale} />
       <WhyUs locale={locale} />
       <Testimonials locale={locale} />

@@ -27,9 +27,26 @@ export default async function HeroServer({ locale }: HeroProps) {
   return (
     <section
       dir={isAr ? "rtl" : "ltr"}
-      className="relative bg-[#0a0a2a] text-white py-24 px-6 md:px-16 overflow-hidden"
+      className="relative text-white py-24 px-6 md:px-16 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      {/* Background image */}
+            <Image
+              src="/Backgroun30.webp"
+              alt="Background"
+              fill
+              
+              priority
+            />
+      
+            {/* Gradient overlay */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(180deg, #0D2565, #204AB0)",
+                opacity: 0.9,
+              }}
+            />
+      <div className="max-w-6xl z-20 mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Text Section */}
         <div
           className={`w-full md:w-1/2 flex flex-col gap-5 ${

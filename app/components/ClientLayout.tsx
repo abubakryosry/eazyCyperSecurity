@@ -2,8 +2,8 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import Navbar from "./Navbar";
 import Footer from "./Footer";
+import NavbarServer from "./NavbarServer";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const { locale } = useLanguage();
@@ -11,7 +11,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <div dir={isAr ? "rtl" : "ltr"}>
-      <Navbar />
+      <NavbarServer locale={locale} />
       {children}
       <Footer />
     </div>

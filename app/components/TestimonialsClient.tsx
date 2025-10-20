@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 type Testimonial = {
   id: string | number;
@@ -60,13 +61,15 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
 
                   {/* Client info */}
                   <div className="flex items-center gap-4 mt-4">
-                    {testimonial.imageClient?.url && (
-                      <img
+                    {/* {testimonial.imageClient?.url && (
+                      <Image
                         src={`https://eazycyperstrapi.onrender.com${testimonial.imageClient.url}`}
                         alt={testimonial.name}
+                        width={64}
+                        height={64}
                         className="w-16 h-16 rounded-full object-cover"
                       />
-                    )}
+                    )} */}
                     <div className="flex flex-col text-right">
                       <h3 className="font-semibold text-gray-800 text-base">
                         {testimonial.name}
