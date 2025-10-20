@@ -61,7 +61,7 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
 
                   {/* Client info */}
                   <div className="flex items-center gap-4 mt-4">
-                    {/* {testimonial.imageClient?.url && (
+                    {testimonial.imageClient?.url && (
                       <Image
                         src={`https://eazycyperstrapi.onrender.com${testimonial.imageClient.url}`}
                         alt={testimonial.name}
@@ -69,7 +69,7 @@ export default function TestimonialsClient({ data }: TestimonialsClientProps) {
                         height={64}
                         className="w-16 h-16 rounded-full object-cover"
                       />
-                    )} */}
+                    )}
                     <div className="flex flex-col text-right">
                       <h3 className="font-semibold text-gray-800 text-base">
                         {testimonial.name}
