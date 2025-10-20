@@ -1,6 +1,5 @@
 // layout.tsx
 import type { Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import ClientLayout from "./components/ClientLayout"; // client wrapper
@@ -17,7 +16,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <LanguageProvider>
           <ClientLayout>{children} </ClientLayout>
         </LanguageProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
